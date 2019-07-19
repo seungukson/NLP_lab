@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 a = np.sin(2* np.pi * 0.03 * np.arange(0,100)+ np.random.random(100))
 # np.random.random(100) : 0.0-~
 def generateX(a,n):
-    x_train = []
+    x_train = [];
     y_train = []
     for i in range(len(a)):
         x = a[i:(i+n)]
