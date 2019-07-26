@@ -71,30 +71,36 @@ history.fit(Xtrain, Ytrain, batch_size=BATCH_SIZE, epochs=NUM_EPOCHS, verbose=1,
 encoder = Model(history.input, history.get_layer("second").output)
 reduced_X = encoder.predict(Xtest)
 
-final_pdframe = pd.DataFrame(reduced_X)
-final_pdframe.columns = ["xaxis","yaxis"]
-final_pdframe["word_indx"] = xsts
-final_pdframe["word"] = final_pdframe["word_indx"].map(idx2word)
-final_pdframe.head()
+x = encoder.predict(Xtest[0])
+y = encoder.predict(Xtest[1])
+print(np.argmax(Xtest[0]))
+np.sqrt(np.sum((x-y)**2))
 
-vis_df = final_pdframe.sample(100)
 
-labels = list(vis_df["word"])
-xvals = list(vis_df["xaxis"])
-yvals = list(vis_df["yaxis"])
+# final_pdframe = pd.DataFrame(reduced_X)
+# final_pdframe.columns = ["xaxis","yaxis"]
+# final_pdframe["word_indx"] = xsts
+# final_pdframe["word"] = final_pdframe["word_indx"].map(idx2word)
+# final_pdframe.head()
+#
+# vis_df = final_pdframe.sample(100)
 
-#in inches
-plt.figure(figsize=(14, 10))  
+# labels = list(vis_df["word"])
+# xvals = list(vis_df["xaxis"])
+# yvals = list(vis_df["yaxis"])
 
-for i, label in enumerate(labels):
-    x = xvals[i]
-    y = yvals[i]
-    
-    plt.scatter(x, y)
-    plt.annotate(label,xy=(x, y),xytext=(5, 2),textcoords='offset points', ha='right',va='bottom')
-
-plt.xlabel("Dimension 1")
-plt.ylabel("Dimension 2")
-plt.show()
+# #in inches
+# plt.figure(figsize=(14, 10))
+#
+# for i, label in enumerate(labels):
+#     x = xvals[i]
+#     y = yvals[i]
+#
+#     plt.scatter(x, y)
+#     plt.annotate(label,xy=(x, y),xytext=(5, 2),textcoords='offset points', ha='right',va='bottom')
+#
+# plt.xlabel("Dimension 1")
+# plt.ylabel("Dimension 2")
+# plt.show()
 
 
