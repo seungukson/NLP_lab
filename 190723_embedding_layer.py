@@ -46,7 +46,8 @@ def encode(text):
     return np.array([text])
 tt = 'dog cat dog eat'
 z_test = encode(tt)
-
+z_test
+maxLen
 model2 = Model(xInput, xEmbed)
 pred = model2.predict(z_test)
 print(pred)

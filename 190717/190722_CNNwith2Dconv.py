@@ -2,7 +2,7 @@ from keras.models import Model
 from keras.layers import Dense, LSTM, Convolution2D, MaxPooling2D,Input,Flatten
 import numpy as np
 from keras import backend as K
-x_train = np.random.random([10,8,5,1])# data갯수,가로8,세로5,필터수
+x_train = np.random.random([10,8,5,1])# data갯수,가로8,세로5,채널수
 y_train = np.random.choice([0,1],[10,1])
 x_test = np.random.random([2,8,5,1])
 K.clear_session();

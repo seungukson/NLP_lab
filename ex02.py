@@ -5,12 +5,10 @@ from keras.models import Model
 from keras.layers import Input, LSTM, Convolution1D, MaxPooling1D,Dense
 import numpy as np
 
-
 x_train = np.random.random([10, 8, 3])
 y_train = np.random.randint(0, 1, (10, 1))
 
 x_test= np.random.random([4,8,3])
-
 
 xinput = Input(batch_shape=(None, 8, 3))
 conv = Convolution1D(12, 3, activation='relu')(xinput)
@@ -25,4 +23,3 @@ model.fit(x_train, y_train, epochs=10, batch_size=1)
 
 predY = model.predict(x_test)
 print(predY)
-

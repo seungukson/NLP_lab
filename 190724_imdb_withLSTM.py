@@ -23,8 +23,8 @@ xLstm = Bidirectional(LSTM(60))(xEmbed)
 xOutput = Dense(1, activation='sigmoid')(xLstm)
 model = Model(xInput, xOutput)
 model.compile(loss='binary_crossentropy', optimizer='adam')
+model.summary()
 model.fit(x_train, y_train, batch_size=32, epochs = 1)
-
 y_hat = model.predict(x_test, batch_size=32)
 y_hat_class = np.round(y_hat, 0)
 y_hat_class.shape = y_test.shape
