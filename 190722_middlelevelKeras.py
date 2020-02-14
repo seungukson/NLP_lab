@@ -14,6 +14,7 @@ y_arr = np.zeros((10, 5))
 for i, v in enumerate(y_train):
     y_arr[i][v] = 1
 
+git_branch_test = "It's my test script"
 
 y_cat = to_categorical(y_train)
 xInput = Input(batch_shape=(None, 8))
