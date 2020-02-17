@@ -25,7 +25,7 @@ yOutput = Dense(5,activation='sigmoid')(xPool1)
 # h = Model(x_input, hidden)
 model = Model(xInput, yOutput)
 model.compile(loss='categorical_crossentropy', optimizer='adam')
-model.fit(x_train, y_cat, epochs=50,batch_size=2,verbose=1)
+model.fit(x_train, y_cat, epochs=50, batch_size=2, verbose=1)
 
 # predY = model.predict(z_test,batch_size=1)
 #
